@@ -13,7 +13,7 @@ int main(){
     SetSizeDataIris ( fileName );
 
         /* set space for DataIris */
-    DataIris* data;
+    DataIris* data = (DataIris*) malloc (sizeof(DataIris));
     data = reserveSpaceDataIris (data);
 
         /* Charge datas from database */
@@ -26,7 +26,7 @@ int main(){
     double*  average =  AverageMatrix (data);
     
         /*  Drow the neuronal space */
-    DataNeuronne* dataNeuronne;
+    DataNeuronne* dataNeuronne = (DataNeuronne*) malloc (sizeof(DataNeuronne));
     dataNeuronne = reserveSpaceDataNeuronne (dataNeuronne);
     dataNeuronne = EnvDonneeNeuronne (dataNeuronne, average);
 
