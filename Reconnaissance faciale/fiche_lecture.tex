@@ -1,0 +1,128 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{fancyvrb}
+\usepackage{array}
+\usepackage{biblatex}
+\usepackage{float}
+\usepackage{subcaption}
+
+\bibliography{rapport}
+
+\title{Reconnaissance faciale}
+\author{Komlan Jean-Marie DANTODJI
+\\
+    \multicolumn{1}{
+        p{.7\textwidth}}{\centering\emph{Université Paris Vincennes St-Denis\\
+  UFR mathématiques, informatique, technologies sciences de l'information\\}
+  L3 Informatique}
+}
+\date{\today}
+\begin{document}
+
+
+\begin{titlepage}
+    \maketitle
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+\section{Avant-propos}
+\par Cette fiche de lecture porte sur la question de la reconnaissance faciale une technologie biométrique de reconnaissance de visage très utilisée de nos jours. Malgré son progrès exponentiel, elle porte des enjeux éthiques dans la société d'aujourd'hui notamment dans la vie privée des citoyens. Dans les lignes qui suivront, nous allons découvrir ce qu'est la reconnaissance faciale la technologie qui s'interesse à sa mise en place. 
+\par Nous verrons de plus, les domaines d'application de la reconnaissance faciale, ses conséquences positives et négatives dans la société.\\
+
+\par Dans un premier temps nous allons nous intéresser à l'article de Lambert R. publiée dans pensée artificielle. \\
+\par Dans un second temps nous verrons une méthode de reconnaissance basée sur la technique de "Eigen Faces and Principle Component Analysis" écrite par les auteurs Abdelfatah Aref Tamimi, Omaima N.A.AL-Allaf et Mohammad A. Alia pages 5650 à 5660 de la revue "Peer Review Research Publishing System" publié dans le journal "INTERNATIONAL JOURNAL OF COMPUTERS TECHNOLOGY ".
+
+\newpage
+\section{La reconnaissance faciale}
+\subsection{Présentation de l'auteur}
+\par Lambert R. est un ingénieur Data Scientiste et mathématicien. Il a réalisé des travaux sur l'apprentissage des machines.
+\par Aujourd'hui il écrit des articles en data science, deep Learning, big data et intelligence artificielle pour PenseeArtificielle.fr, dans le but de promouvoir et vulgariser les promesses d'avenir qu'offrent ces domaines de pointe.
+
+\subsection{Définition et historique de la reconnaissance faciale}
+\par En 1964, l'équipe de Woodrow Bledsoe arrive à mettre en place un premier modèle d'intelligence artificielle de reconnaissance de face mais plutôt semi-automatisé. Au fil des années les algorithmes ont connu des améliorations et qui permettent de mettre en place de vraie IA. C'est le cas de DeepFace de Facebook en 2014 qui arrive à identifier les utilisateurs de Facebook.\\
+\par La reconnaissance faciale est une technologie biométrique consistant à authentifier ou identifier une personne à partir de l’image de son visage.
+\par Cette technique permet en effet de vérifier si la personne à reconnaitre est déjà présente dans une base de donnée et dont toutes ses autres informations sont rattachées à la base. 
+On compare donc son visage à toutes les images de visage déjà présent dans la base de données.
+\par La Machine Learning est la technologie qui permet de faire apprendre à une machine comment reconnaitre la photo d’un individu présente dans une image.  
+
+
+\subsection{Vérification et identification de face}
+\par Tout d'abord on distingue deux systèmes de reconnaissance faciale: la vérification et l'identification.
+La vérification consiste à prendre la photo de l'individu en temps réel et la comparer à une autre image déjà présente. L'algorithme de reconnaissance faciale vérifie si effectivement la première photo est la personne attendue.\\
+\par A l'inverse de la vérification, l'identification consiste à repérer un individu parmi plusieurs images présentées. La machine va alors chercher à mettre un nom sur le visage voire toutes les informations liées à la personne présente dans une base de donnée.
+
+
+\subsection{Les applications}
+\par Dans le domaine de la téléphonie mobile, la reconnaissance faciale est présente dans notre vie quotidienne notamment pour faciliter l’usage de nos téléphones portable. En effet, grâce à cette technologie, l’authentification pour le déverrouillage du téléphone devient facile avec la reconnaissance faciale 3D.\\
+\par De plus pour avoir accès aux services publics, les utilisateurs pourront à l’aide de la reconnaissance faciale accéder à des services publics en ligne.\\
+\par Cette technologie permet aussi d'authentifier les passagers dans un aéroport. Ce procédé permet de rendre fluide le passage des frontières en contrôlant de manière automatique les entrées et sorties.\\
+\par Dans le domaine robotique, la reconnaissance faciale intégrée dans un robot permet à ce dernier d’identifier un humain et le reconnaitre.\\
+\par Enfin elle est utile dans la lutte contre les criminels. Bien que l’utilisation de la reconnaissance faciale pose des questions éthiques, c’est un excellent moyen pour lutter contre la criminalité.  En effet, les services de polices s’en servent pour reconnaitre plus tôt une récidive.
+
+\subsection{Impacts négatifs dans la société}
+L’utilisation de la reconnaissance faciale bien que utile dans les services qu’elle nous apporte, elle ne l’est pas autant. En effet, les algorithmes utilisés dans les reconnaissances présentent des failles souvent. Ces algorithmes ne sont pas fiables car ils peuvent se tromper et prendre un innocent comme coupable.\\
+\par En plus, la reconnaissance faciale a des enjeux éthiques dans la société notamment sur la libre circulation dans la mesure où toute la population est identifiable et dont toutes ses actions font l’objet de contrôle.\\
+\par Pour plus de sécurité la technologie de la reconnaissance faciale doit être suivie afin de ne pas prendre des décisions pouvant porter atteinte à la valeur humaine. 
+
+\begin{figure}[H]
+    \caption{A display of an  example of the response of all the individual cells in the neocognitron}
+    \label{fig:L6}
+\end{figure}
+
+\section{Modèle d'approche de la reconnaissance d’ Eigenfaces}
+\subsection{Présentation des auteurs}
+\par Les auteurs Abdelfatah Aref Tamimi, Omaima N.A.AL-Allaf et Mohammad A. Alia ont expliqués le modèle Eigenfaces de la reconnaissance faciale. Tous professeurs agrégé au "Dept. of CS, Faculty of Sciences and IT, Al-Zaytoonah University of Jordan", ils ont écrit sur dix pages l'article "Eigen Faces and Principle Component Analysis" de la revue "Peer Review Research Publishing System" publié dans le journal "INTERNATIONAL JOURNAL OF COMPUTERS TECHNOLOGY " et publié le 28 février 2015.
+
+\subsection{Détection de la face}
+\par Pour identifier un individu dans une image quel que soit le modèle, on besoins de procéder à la détection de la face ou la figure dans l'image. On passe un algorithme qui prend une image contenant la face à reconnaitre puis localise le visage. On en cite comme algorithme : le " Viola et Jones ", les descripteurs HOG (Histogram of Oriented Gradient), le Classificateur SVM (Support Vector Machine)
+
+\subsection{Phase d'identification de de la face}
+Apres quelques traitements préalables sur le visage, on se base sur un algorithme qui recherche une base orthonormée qui permet de garder le plus possible la variance des données d’images présentes dans la base de données. Une nouvelle image à identifier est alors projetée dans cette base et comparé aux projections des images déjà présentes. S’il existe une image dont sa projection présente une distance euclidienne faible alors on dira que l’image est identifiée.\\
+
+1. Préparation des données :
+\par Depuis la base de données supposons qu’on charge p images.
+Pour chaque image on redimensionne ses valeurs matrice 2D m*n en un vecteur colonne $m*n$. On constitue alors V une matrice correspondante à toutes les images dont la taille devient $m*n*p$.
+Déterminer l’image moyen (M) correspondant à toutes les données.\\
+
+2. Recherche d’une base orthonormée : Les vecteurs eigenfaces Ei
+\par Les eigenfaces sont déterminés par les vecteurs propre de la matrice 
+$A=VV^{t}$ de taille k*k où $k = m*n$ \\A est l’ensemble des visages centrés. 
+Les vecteurs propres d’une matrice carrée A est déterminée par la formule 
+$AX=\lambda X$, où $X$ est le vecteur propre, et $\lambda$ sa valeur propre.\\
+
+3. Projection des images :
+\par Soit I un vecteur image de la matrice V de la base de donnée, l’image projeté Ip dans l’espace Eigenfaces est égale à:
+$I_{p} = m +\sum_{i=1}^{q} \alpha_{i}E_{i}$
+m est le vecteur moyen correspondant à toutes les données
+Ei les vecteurs eigenfaces
+q détermine à partir de la somme cumulée normalisée des valeurs propres $\lambda$.
+$\sum \lambda_{i}$
+$\alpha_{i}= <E_{i}, I-m>$ le produit scalaire  déterminant les $\lambda_{i}$.\\
+
+4. Reconnaissance du visage :
+\par Pour l’image J à reconnaitre, on projete J dans l’espace de eigenface Ei, et sortir un vecteur projeté Jp.
+On procède à un parcours des vecteurs projeté de la base de donnée et calculer la distance euclidienne entre l’image projeté Jp et les images projetés Ip de la base de donnée. \\
+$d(J,i) = \sum_{i=1}^{q} (J_{p}-I_{p}^{i})^{2}$\\
+L’image i est identifiée si $d(J,i)$ est la plus petite des distance.
+
+
+\newpage
+\section{Conclusion}
+La technologie de la reconnaissance faciale est de plus en plus utilisée dans le contrôle des aéroports de grandes villes d’Europe. De par son utilité dans la lutte contre la criminalité les policiers s'en sert pour faciliter les enquêtes. Ce qui permet de diminuer les récidives dans les prisons. Dans la société certains gouvernements intègrent cette technologie et avoir les coordonnées biométrique de tous les citoyens. \par Néanmoins, la reconnaissance faciale pose d’énormes problèmes notamment la non fiabilité des individus à cause des algorithmes qui ne sont pas toujours fidèle. Dans les moindre des cas détection positive, un autre souci éthique se pose. Jusqu'à aujourd'hui, cette technologie a quand même évolué et de nouveaux modèles plus fiables continuent d'émerger.  
+
+
+\section{Reférences}
+\par [1] Abdelfatah Aref Tamimi, Omaima N.A.AL-Allaf et Mohammad A. Alia ont écrit la revue Council for Face Recognition Systems: A Comparative Study, 28 février 2015.
+
+\par [2] Matthew Turk and Alex Pentland. Eigenfaces for recognition. J. Cognitive Neuroscience, 3(1) :71– 86, 1991.
+\par [3] Lambert R. ingénieur Data Scientiste et mathématicien a écrit l'article "La reconnaissance faciale" publié dans la revue PenseeArtificielle
+\par [4] Nassim Abbas, University of Science Technology Houari Boumedine | usthb Faculty of Electronics and Computer Science. PhD in Signal and Images Processing
+
+
+\newpage
+\printbibliography
+\end{document}

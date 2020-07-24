@@ -1,0 +1,112 @@
+\documentclass{beamer}
+\usetheme{Warsaw}
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+\usepackage{beamerthemesplit}
+\title{La reconnaissance faciale}
+\author{Komlan Jean-Marie DANTODJI \\Etudiant en L3 Informatique \\Université Paris 8}
+\date{\today}
+
+\begin{document}
+\frame{\titlepage}
+	\begin{frame}
+		\frametitle{Plan}
+		\framesubtitle{\textit{La reconnaissance faciale.}.}
+		\begin{itemize}
+			\item Definition
+			\item Localisation de la face dans l’image
+			\item Les différentes méthodes d’identifications
+			\item La modélisation de Eigenfaces
+			\item Concluion
+		\end{itemize}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Définition}
+		\framesubtitle{\textit{La reconnaissance faciale.}.}
+		\begin{block}{Définition}
+			La reconnaissance faciale est une technologie biométrique consistant à authentifier ou identifier une personne à partir de l’image de son visage.\\
+Cette technique permet en effet de vérifier si la personne à reconnaitre est déjà présente dans une base de donnée et dont toutes ses informations y sont rattachées.                                  
+
+		\end{block}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Localisation de la face dans l’image}
+		\framesubtitle{\textit{La reconnaissance faciale.}.}
+		\begin{block}{}
+	\par -Disposer d'une quantité assez suiffisante de visages qui permettront de procéder à une apprentissage.	
+	\par -Mise en place des images de la base de données
+	\par -Traitement préalable sur ces images de la dataset (localistion des visages)
+	\par -L'algorithme de "Histogram of Oriented Gradient" (HOG) permet de détecter les objets présents dans une image.
+Il est basé sur les zones régulièrements réparties dans l'image.
+Après cette phase de détection du visage on passe à l'apprentissage. 
+		\end{block}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Les différentes méthodes d’identifications}
+		\framesubtitle{\textit{La reconnaissance faciale.}.}
+		\begin{block}{}
+On distingue plusieurs méthodes de modélisation de la technologie de la reconnaissance faciale:
+\begin{figure}[H]
+    \includegraphics[width=\linewidth]{methodes.png}
+    \caption{Principales techniques de reconnaissance de visages}
+    \label{fig:L1}
+\end{figure}
+
+		\end{block}
+	\end{frame}
+	\begin{frame}
+		\frametitle{La modélisation de Eigenfaces}
+		\framesubtitle{\textit{La reconnaissance faciale.}.}
+		\begin{block}{Algorithme de Eigenfaces}
+\par Le but principale de cette méthode consiste à construire une base orthonormée des tous les visages à notre disposition, et quand on décide d'identifier une image plus tard, on aura juste à projeter cette nouvelle image dans cette base et faire des comparaisons avec les autres images d'apprentissage à avec la distance euclidienne.
+\par Apprentissage:\\
+1-Préparation des données:\\
+Soit p images contenue dans la dataset,
+On recupere les la matrice de chaque image de taille $m*n$ et transformé en un vecteur colonne. 
+On construit alors une grande matrice V constituant chaque colonne qui a pour taille $p*(m*n)$.
+Calculer une image moyenne à toutes les images de la base de donnée:\\
+ $M = \frac{1}{p}\sum_{i=1}^{p} I_{i}$
+		\end{block}
+	\end{frame}
+	\begin{frame}
+		\frametitle{La modélisation de Eigenfaces}
+		\framesubtitle{\textit{La reconnaissance faciale.}.}
+		\begin{block}{Algorithme de Eigenfaces (suite...)}
+2. Recherche d’une base orthonormée : Les vecteurs eigenfaces Ei\\
+\par Les vecteurs eigenfaces sont les vecteurs propres de la matrice 
+$A=VV^{t}$
+A est donc l'ensemble des visages centrées.
+Les vecteurs propres de la matrice carrée A sont déterminées par la formule 
+$AX=\lambda X$, où $X$ est le vecteur propre, et $\lambda$ sa valeur propre.\\
+
+3. Projection des images :\\
+\par Soit I un vecteur image de la matrice V de la base de donnée, l’image projeté Ip dans l’espace Eigenfaces est égale à:
+$I_{p} = M +\sum_{i=1}^{q} \alpha_{i}E_{i}$\\
+M est le vecteur moyen correspondant à toutes les données
+Ei les vecteurs eigenfaces
+q détermine à partir de la somme cumulée normalisée des valeurs propres $\lambda$.
+$\sum \lambda_{i}$
+$\alpha_{i}= <E_{i}, I-m>$ le produit scalaire  déterminant les $\lambda_{i}$.\\
+
+		\end{block}
+	\end{frame}
+	\begin{frame}
+		\frametitle{La modélisation de Eigenfaces}
+		\framesubtitle{\textit{La reconnaissance faciale.}.}
+		\begin{block}{Algorithme de Eigenfaces (suite...)}
+4. Reconnaissance du visage :\\\
+\par Pour l’image J à reconnaitre, on projete J dans l’espace de eigenface Ei, et sortir un vecteur projeté Jp.
+On procède à un parcours des vecteurs projeté de la base de donnée et calculer la distance euclidienne entre l’image projeté Jp et les images projetés Ip de la base de donnée. \\
+$d(J,i) = \sum_{i=1}^{q} (J_{p}-I_{p}^{i})^{2}$\\
+L’image i est identifiée si $d(J,i)$ est la plus petite des distance.
+
+		\end{block}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Conclusion}
+		\framesubtitle{\textit{La reconnaissance faciale.}.}
+		\begin{block}{Conclusion}
+L’avencée de la technologie de la reconnaissance faciale integre en son sein tous les autres domaines de la société. Elle suscite des question sur l’éthique dans la mesure où pour que ces algorithmes soient éfficaces il faut des informations et données d’une population. Il faut notamment préciser que ces algorithmesne sont pas éfficaces à 100\% et donc son integration dans la vie quotidienne peut créer des problemes de liberté de circulation
+		\end{block}
+	\end{frame}
+	
+\end{document}
